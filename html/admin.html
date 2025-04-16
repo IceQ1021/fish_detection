@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 元数据与基础配置 -->
+    <meta charset="UTF-8">
+    <title>管理端-数据看板</title>
+    
+    <!-- 样式表引用 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <!-- 主看板容器 -->
+    <div class="dashboard">
+        <!-- 头部区域 -->
+        <header class="dashboard-header">
+            <!-- 标题 -->
+            <h2>数据看板</h2>
+            
+            <!-- 管理控制按钮组 -->
+            <div class="admin-controls">
+                <button id="logoutBtn">退出登录</button>
+                <button id="historyBtn">历史检测</button>
+            </div>
+        </header>
+
+        <!-- 统计指标卡片组 -->
+        <div class="stats-grid">
+            <!-- 图像检测模块 -->
+            <div class="stat-card alert-card">
+                <h3>总图像检测</h3>
+                <div class="stat-value" id="totalDetections">-</div>
+                <div class="stat-sub">
+                    当日检测 <span id="todayDetections">-</span>
+                </div>
+            </div>
+
+            <!-- 图像预警模块 -->
+            <div class="stat-card alert-card">
+                <h3>图像预警</h3>
+                <div class="stat-value" id="totalAlerts">-</div>
+                <div class="stat-sub">
+                    当日预警 <span id="todayAlerts">-</span>
+                </div>
+            </div>
+
+            <!-- 视频检测模块 -->
+            <div class="stat-card video-card">
+                <h3>总视频检测</h3>
+                <div class="stat-value" id="totalVideoDetections">-</div>
+                <div class="stat-sub">
+                    当日检测 <span id="todayVideoDetections">-</span>
+                </div>
+            </div>
+
+            <!-- 视频预警模块 -->
+            <div class="stat-card video-card">
+                <h3>视频预警</h3>
+                <div class="stat-value" id="totalVideoAlerts">-</div>
+                <div class="stat-sub">
+                    当日预警 <span id="todayVideoAlerts">-</span>
+                </div>
+            </div>
+
+            <!-- 智能问答模块 -->
+            <div class="stat-card qa-card">
+                <h3>智能问答</h3>
+                <div class="stat-value" id="qaCount">-</div>
+                <div class="stat-sub">已处理问题</div>
+            </div>
+        </div>
+
+        <!-- 趋势图表容器 -->
+        <div class="chart-container">
+            <!-- ECharts 渲染容器 -->
+            <div id="trendChart" style="height:400px"></div>
+        </div>
+    </div>
+
+    <!-- 应用脚本 -->
+    <script type="module" src="../js/admin.js"></script>
+</body>
+</html>

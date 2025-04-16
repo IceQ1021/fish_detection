@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 基础元数据 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史检测记录</title>
+    
+    <!-- 样式表引用 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/history.css">
+
+    <!-- 内嵌选项卡样式 -->
+    <style>
+        /* ========================
+           选项卡组件样式
+           Tab Component Styles
+        ======================== */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* 选项卡按钮 */
+        .tab button {
+            /* 布局属性 */
+            float: left;
+            padding: 14px 16px;
+            
+            /* 视觉样式 */
+            background-color: inherit;
+            border: none;
+            outline: none;
+            
+            /* 交互效果 */
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* 激活态选项卡 */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* 选项卡内容区 */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 应用根容器 -->
+    <div id="app">
+        <!-- 页面头部 -->
+        <header>
+            <h1>历史检测记录</h1>
+            <!-- 动态返回按钮 -->
+            <button id="backBtn" class="return-button"></button>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <div class="content">
+            <!-- 选项卡导航 -->
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'image')">图片历史记录</button>
+                <button class="tablinks" onclick="openTab(event, 'video')">视频历史记录</button>
+            </div>
+
+            <!-- 图片历史记录面板 -->
+            <div id="image" class="tabcontent">
+                <table id="imageHistoryTable">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>检测类型</th>
+                            <th>时间</th>
+                            <th>目标数量</th>
+                            <th>图片</th>
+                        </tr>
+                    </thead>
+                    <tbody id="imageHistoryTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- 视频历史记录面板 -->
+            <div id="video" class="tabcontent">
+                <table id="videoHistoryTable">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>检测类型</th>
+                            <th>时间</th>
+                            <th>目标数量</th>
+                        </tr>
+                    </thead>
+                    <tbody id="videoHistoryTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本引用 -->
+    <script type="module" src="../js/history.js"></script>
+
+    <!-- 选项卡切换逻辑 -->
+    <script>
+        /**
+         * 切换选项卡
+         * @param {Event} evt - 事件对象
+         * @param {string} tabName - 目标选项卡ID
+         */
+        function openTab(evt, tabName) {
+            // 隐藏所有内容区
+            let tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // 移除所有按钮激活状态
+            let tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // 显示目标内容区并激活按钮
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

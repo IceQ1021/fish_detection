@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深海鱼类识别系统</title>
+    <!-- 模块化CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/upload-panel.css">
+    <link rel="stylesheet" href="css/result-panel.css">
+    <link rel="stylesheet" href="css/qa-panel.css">
+    <link rel="stylesheet" href="css/alert.css">
+
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>深海鱼类识别系统</h1>
+            <div class="header-controls">
+                <button id="logoutBtn" class="header-button">退出登录</button>
+                <button onclick="goToHistoryPage()" class="header-button">历史检测</button>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- 上传面板 -->
+            <div class="upload-panel">
+                <div class="upload-section">
+                    <h3>图片上传</h3>
+                    <input type="file" id="imageInput" accept="image/*">
+                    <button id="uploadImageBtn">上传图片</button>
+                </div>
+                
+                <div class="upload-section">
+                    <h3>视频上传</h3>
+                    <input type="file" id="videoInput" accept="video/*">
+                    <button id="uploadVideoBtn">上传视频</button>
+                </div>
+                
+                <div class="upload-section">
+                    <h3>实时检测</h3>
+                    <video id="videoElement" autoplay playsinline muted></video>
+                    <button id="startCameraBtn">开启摄像头</button>
+                    <button id="startDetectionBtn" disabled>开始检测</button>
+                    <button id="stopCameraBtn" disabled>停止检测</button>
+                </div>
+                
+                <div class="status" id="statusMessage"></div>
+            </div>
+            
+            <!-- 结果面板 -->
+            <div class="result-panel">
+                <div class="image-result" id="imageResult">
+                    <canvas id="resultCanvas"></canvas>
+                </div>
+                
+                <div class="video-result" id="videoResult">
+                    <div class="video-container">
+                        <video id="processedVideo" controls></video>
+                        <canvas id="videoOverlay"></canvas>
+                    </div>
+                    <div class="video-controls">
+                        <button id="playPauseBtn">播放/暂停</button>
+                        <button id="stopVideoBtn">停止</button>
+                    </div>
+                </div>
+                
+                <div class="info-panel">
+                    <table id="resultTable">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>识别结果</th>
+                                <th>目标数量</th>
+                                <th>置信度</th>
+                                <th>用时</th>
+                                <th>目标坐标</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <div id="qa-module-root">
+        <!-- 悬浮触发器 -->
+        <div class="qa-trigger" data-state="collapsed">
+            <div class="qa-icon">?</div>
+        </div>
+        
+        <!-- 对话面板 -->
+        <div class="qa-panel">
+            <header class="qa-header">
+                <h3>深海专家助手</h3>
+            </header>
+            
+            <div class="qa-dialog">
+                <div id="qa-history" class="qa-history"></div>
+                
+                <div class="qa-controls">
+                    <textarea id="qa-input" placeholder="输入问题或点击话筒..."></textarea>
+                    <div class="qa-buttons">
+                        <button id="qa-voice-btn" class="icon-btn">
+                            <img src="assets/mic.png" alt="语音输入">
+                        </button>
+                        <span id="recognition-status" class="status-text"></span>
+                        <button id="qa-send-btn">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 定义 goToHistoryPage 函数 -->
+    <script>
+        function goToHistoryPage() {
+            window.location.href = './html/history.html';
+        }
+    </script>
+    <!-- 模块化JavaScript -->
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/camera.js"></script>
+    <script type="module" src="js/websocket.js"></script>
+    <script type="module" src="js/upload.js"></script>
+    <script type="module" src="js/detection.js"></script>
+    <script type="module" src="js/ollama-api.js"></script>
+    <script type="module" src="js/qa-voice.js"></script>
+
+    <script type="module" src="js/alert.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* ========================
+   上传面板组件样式
+   Upload Panel Component Styles
+======================== */
+
+/* ------------------------
+   主容器样式
+   Main Container
+------------------------ */
+.upload-panel {
+  width: 350px;                    /* 固定宽度 */
+  background: rgba(255, 255, 255, 0.85); /* 半透明白色背景 */
+  border-radius: 12px;              /* 圆角尺寸 */
+  padding: 20px;                    /* 内边距 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 投影效果 */
+}
+
+/* ------------------------
+ 上传区块系统
+ Upload Sections
+------------------------ */
+.upload-section {
+  margin-bottom: 20px;     /* 区块底部外边距 */
+  padding-bottom: 20px;   /* 底部内边距 */
+  border-bottom: 1px solid #ddd; /* 底部分割线 */
+}
+
+/* 最后一个区块取消分割线 */
+.upload-section:last-child {
+  border-bottom: none;    /* 移除边框 */
+  margin-bottom: 0;        /* 清除底部外边距 */
+  padding-bottom: 0;       /* 清除底部内边距 */
+}
+
+/* ------------------------
+ 实时视频预览组件
+ Live Video Preview
+------------------------ */
+#videoElement {
+  /* 尺寸控制 */
+  width: 100%;
+  max-width: 320px;       /* 最大显示宽度 */
+  
+  /* 布局定位 */
+  display: block;
+  margin: 10px auto;      /* 垂直+水平居中 */
+  
+  /* 视觉效果 */
+  background-color: #000; /* 黑色背景 */
+  transform: scaleX(-1); /* 水平镜像翻转 */
+}

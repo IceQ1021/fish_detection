@@ -1,0 +1,90 @@
+/* ========================
+   警报系统样式
+   Alert System Styles
+======================== */
+
+/* ------------------------
+   警报容器布局
+   Alert Container Layout
+------------------------ */
+#alert-container {
+    position: fixed;        /* 固定定位 */
+    top: 20px;             /* 顶部间距 */
+    right: 20px;           /* 右侧间距 */
+    z-index: 9999;         /* 确保最高层级 */
+    max-width: 300px;      /* 最大宽度限制 */
+}
+
+/* ------------------------
+   单个警报消息组件
+   Individual Alert Component
+------------------------ */
+.alert-message {
+    /* 布局设置 */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;    /* 消息间距 */
+    
+    /* 视觉样式 */
+    background: #fff3cd;    /* 警告黄色背景 */
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    /* 内间距 */
+    padding: 12px 15px;
+    
+    /* 动画组合 */
+    animation: 
+        slide-in 0.3s ease-out,       /* 滑入动画 */
+        fade-out 0.5s 6s forwards;    /* 6秒后淡出 */
+}
+
+/* ------------------------
+   图标样式
+   Icon Styling
+------------------------ */
+.alert-icon {
+    font-size: 18px;        /* 图标尺寸 */
+    margin-right: 10px;     /* 图标与文字间距 */
+    color: inherit;         /* 继承文字颜色 */
+}
+
+/* ------------------------
+   警报文本样式
+   Alert Text Formatting
+------------------------ */
+.alert-text {
+    color: #856404;         /* 深黄色文本 */
+    font-size: 14px;        /* 标准字号 */
+    line-height: 1.4;       /* 行高增强可读性 */
+}
+
+/* ========================
+   动画定义
+   Animation Definitions
+======================== */
+@keyframes slide-in {
+    from { transform: translateX(100%); }  /* 从右侧滑入 */
+    to { transform: translateX(0); }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }   /* 淡出效果 */
+    to { opacity: 0; }
+}
+
+/* ========================
+   响应式适配
+   Responsive Adaptations
+======================== */
+@media (max-width: 480px) {
+    #alert-container {
+        max-width: 90vw;    /* 移动端宽度适配 */
+        right: 5vw;         /* 右侧留空 */
+    }
+    
+    .alert-message {
+        padding: 10px 12px;  /* 紧凑内间距 */
+    }
+}

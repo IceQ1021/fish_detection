@@ -1,0 +1,125 @@
+/* ========================
+   管理端仪表盘全局样式
+   Admin Dashboard Global Styles
+======================== */
+
+/* ------------------------
+   基础覆盖与容器样式
+   Base Overrides & Container
+------------------------ */
+/* 增强背景遮罩可见性 */
+body::before {
+    background: rgba(255, 255, 255, 0.7) !important; 
+}
+
+/* 主仪表盘容器 */
+.dashboard {
+    max-width: 1200px;         /* 最大内容宽度 */
+    margin: 0 auto;            /* 水平居中 */
+    padding: 30px 20px;         /* 内间距 */
+    position: relative;         /* 定位上下文 */
+    z-index: 2;                /* 层级控制 */
+}
+
+/* ========================
+   头部区域样式
+   Header Section
+------------------------ */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between; /* 两端对齐布局 */
+    align-items: center;       /* 垂直居中 */
+    margin-bottom: 40px;       /* 底部间距 */
+}
+
+/* 管理控制按钮组 */
+.admin-controls {
+    display: flex;
+    flex-direction: column;    /* 垂直排列 */
+    gap: 12px;                 /* 按钮间距 */
+}
+
+/* 管理端专用按钮样式 */
+.dashboard-header button {
+    width: 120px;             /* 固定宽度 */
+    padding: 10px;            /* 内间距 */
+    margin: 0;                /* 清除默认外边距 */
+    align-self: center;       /* 自对齐 */
+}
+
+/* ========================
+   统计卡片系统
+   Stats Card System
+------------------------ */
+/* 卡片容器布局 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 响应式网格 */
+    gap: 25px;                /* 卡片间距 */
+    justify-content: center;  /* 居中对齐 */
+    margin-bottom: 40px;      /* 底部间距 */
+}
+
+/* 统计卡片通用样式 */
+.stat-card {
+    background: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    border-radius: 12px;       /* 圆角尺寸 */
+    padding: 20px;             /* 内间距 */
+    min-height: 150px;         /* 最小高度 */
+    display: flex;             /* 弹性布局 */
+    flex-direction: column;    /* 垂直排列 */
+    transition: transform 0.3s ease; /* 交互动画 */
+}
+
+/* 卡片悬停效果 */
+.stat-card:hover {
+    transform: translateY(-5px); /* 上移效果 */
+}
+
+/* 统计数值显示 */
+.stat-value {
+    font-size: 2.4rem;         /* 字号 */
+    font-weight: 600;          /* 字重 */
+    color: #2c3e50;            /* 主色 */
+    margin: 10px 0;            /* 间距控制 */
+}
+
+/* 统计辅助文字 */
+.stat-sub {
+    color: #666;              /* 辅助色 */
+    font-size: 0.9rem;         /* 字号 */
+}
+
+/* ========================
+   图表容器
+   Chart Container
+------------------------ */
+.chart-container {
+    background: rgba(255, 255, 255, 0.9); /* 统一背景样式 */
+    border-radius: 12px;       /* 圆角匹配卡片 */
+    padding: 20px;             /* 内间距 */
+    margin-top: 30px;          /* 顶部间距 */
+}
+
+/* ========================
+   响应式适配
+   Responsive Adaptations
+------------------------ */
+@media (max-width: 768px) {
+    /* 网格布局调整为单列 */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 移动端卡片优化 */
+    .stat-card {
+        min-height: 120px;     /* 降低最小高度 */
+        padding: 20px;         /* 保持内间距 */
+    }
+    
+    /* 移动端数值显示优化 */
+    .stat-value {
+        font-size: 1.8rem;     /* 缩小字号 */
+    }
+}

@@ -1,0 +1,86 @@
+/* ========================
+   登录页面样式
+   Login Page Styles
+======================== */
+
+/* ------------------------
+   登录表单容器
+   Login Form Container
+------------------------ */
+.login-container {
+    /* 尺寸与定位 */
+    max-width: 400px;
+    margin: 100px auto;    /* 垂直间距100px，水平居中 */
+    padding: 30px;         /* 内边距 */
+    
+    /* 视觉样式 */
+    background: rgba(255,255,255,0.95); /* 半透明白色背景 */
+    border-radius: 8px;     /* 圆角效果 */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); /* 柔和投影 */
+}
+
+/* ------------------------
+   表单元素组
+   Form Field Group
+------------------------ */
+.form-group {
+    margin-bottom: 20px;   /* 表单项底部间距 */
+}
+
+/* 输入标签样式 */
+.form-group label {
+    display: block;         /* 块级显示 */
+    margin-bottom: 8px;    /* 标签与输入框间距 */
+    font-weight: 500;      /* 中等字重 */
+}
+
+/* 文本输入框样式 */
+.form-group input {
+    /* 尺寸与布局 */
+    width: 100%;
+    padding: 10px;
+    
+    /* 边框样式 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* ------------------------
+   提交按钮
+   Submit Button
+------------------------ */
+button[type="submit"] {
+    /* 尺寸与布局 */
+    width: 100%;
+    padding: 12px;
+    
+    /* 视觉样式 */
+    background: #007bff;   /* 品牌蓝色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    
+    /* 交互效果 */
+    cursor: pointer;
+    transition: background 0.3s; /* 颜色过渡动画 */
+}
+
+/* 按钮悬停状态 */
+button[type="submit"]:hover {
+    background: #0056b3;  /* 深蓝色 */
+}
+
+/* ========================
+   响应式适配
+   Responsive Adaptations
+======================== */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 50px 15px;  /* 移动端减少上下间距 */
+        padding: 20px;      /* 紧凑内边距 */
+    }
+    
+    .form-group input {
+        padding: 8px;       /* 移动端输入框调整 */
+    }
+}

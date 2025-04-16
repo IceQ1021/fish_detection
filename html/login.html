@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 基础元数据 -->
+    <meta charset="UTF-8">
+    <title>深海鱼类识别系统 - 登录</title>
+    
+    <!-- 样式表引用 -->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <!-- 登录主容器 -->
+    <div class="login-container">
+        <!-- 系统标题 -->
+        <h2>深海鱼类识别系统</h2>
+
+        <!-- 登录表单 -->
+        <form id="loginForm">
+            <!-- 用户名输入组 -->
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" 
+                       id="username" 
+                       required 
+                       autocomplete="username">
+            </div>
+
+            <!-- 密码输入组 -->
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" 
+                       id="password" 
+                       required
+                       autocomplete="current-password">
+            </div>
+
+            <!-- 提交按钮 -->
+            <button type="submit">登录</button>
+        </form>
+
+        <!-- 登录状态提示 -->
+        <div id="loginMessage" 
+             role="alert" 
+             aria-live="polite"></div>
+    </div>
+
+    <!-- 认证逻辑模块 -->
+    <script type="module" src="../js/auth.js"></script>
+</body>
+</html>
